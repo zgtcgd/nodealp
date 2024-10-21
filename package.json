@@ -2,17 +2,17 @@
   "name": "Hello-World",
   "version": "1.1.0",
   "description": "Hello-World",
-  "main": "index.js",
+  "main": "server.js",
   "repository": "",
-  "author": "MY",
+  "author": "ghi",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "axios": "latest"
   },
   "engines": {
-    "node": ">=14"
+    "node": "18"
   }
 }
