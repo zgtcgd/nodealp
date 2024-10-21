@@ -1,0 +1,16 @@
+FROM node:alpine
+
+WORKDIR /app
+
+COPY index.js package.json /app/
+
+ARG PORT=${PORT:-'3000'}
+EXPOSE $PORT
+
+RUN apk update && \
+    apk add --no-cache bash wget curl procps zsh && \
+    npm install
+
+HEALTHCHECK --interval=2m --timeout=30s CMD wget --no-verbose --tries=1 --spider http://localhost/healthcheck || exit 1
+
+ENTRYPOINT [ "node", "/app/index.js" ]
