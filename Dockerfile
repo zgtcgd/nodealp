@@ -11,6 +11,6 @@ RUN apk update && \
     apk add --no-cache bash wget curl procps zsh && \
     npm install
 
-HEALTHCHECK --interval=2m --timeout=30s CMD wget --no-verbose --tries=1 --spider http://localhost/healthcheck || exit 1
+HEALTHCHECK --interval=2m --timeout=30s CMD curl --fail http://localhost/healthcheck || exit 1
 
 ENTRYPOINT [ "node", "/app/server.js" ]
