@@ -8,7 +8,7 @@ ARG PORT=${PORT:-'3000'}
 EXPOSE $PORT
 
 RUN apk update && \
-    apk add --no-cache bash wget curl procps zsh && \
+    apk add --no-cache bash wget curl procps && \
     npm install
 
 ENTRYPOINT [ "node", "/app/server.js" ]
