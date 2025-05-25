@@ -4,8 +4,7 @@ WORKDIR /app
 
 COPY server.js package.json /app/
 
-ARG PORT=${PORT:-'3000'}
-EXPOSE $PORT
+EXPOSE 3000
 
 RUN apk update && \
     apk add --no-cache bash wget curl procps && \
